@@ -1,20 +1,31 @@
 body {
   text-align: center;
-  background-color: #011F3F;
+  background-color: #ff9ce9;
+  font-family: 'Arial', sans-serif; /* Added a fallback font */
 }
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+  margin: 5%;
+  color: #00eeff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+  animation: pulse 1.5s infinite; /* Added pulse animation */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .container {
   display: block;
   width: 50%;
   margin: auto;
-
 }
 
 .btn {
@@ -24,30 +35,47 @@ body {
   width: 200px;
   border: 10px solid black;
   border-radius: 20%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added transition for smoothness */
+  cursor: pointer; /* Added cursor change for interactivity */
+}
+
+.btn:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Lighten shadow on hover */
 }
 
 .game-over {
   background-color: red;
   opacity: 0.8;
+  animation: shake 0.5s; /* Added shake animation for game over */
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px); }
+  50% { transform: translate(5px); }
+  75% { transform: translate(-5px); }
+  100% { transform: translate(0); }
 }
 
 .red {
-  background-color: red;
+  background-color: #FF3D3D; /* Softer red */
 }
 
 .green {
-  background-color: green;
+  background-color: #3DFF3D; /* Softer green */
 }
 
 .blue {
-  background-color: blue;
+  background-color: #3D3DFF; /* Softer blue */
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #FFFF3D; /* Softer yellow */
 }
 
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+  transform: scale(0.95); /* Scale down when pressed */
 }
